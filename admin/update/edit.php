@@ -10,28 +10,28 @@
 <body>
 <h1>Choose blog for update</h1>
 <?php
-include ('db.php');
-if (isset($_GET['id'])){
+include('db.php');
+if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    if ($id==''){
+    if ($id == '') {
         unset($id);
     }
 }
 
-if (!isset($id)){
+if (!isset($id)) {
     $result = mysqli_query($connect, "SELECT id, title FROM blog_programm_language");
     $myrow = mysqli_fetch_array($result);
 
-    do{
+    do {
         printf("<h3><a href='edit.php?id=%s'>%s</a></h3>", $myrow['id'], $myrow['title']);
-    }while($myrow = mysqli_fetch_array($result));
-}else{
-    include ('db.php');
+    } while ($myrow = mysqli_fetch_array($result));
+} else {
+    include('db.php');
     $result2 = mysqli_query($connect, "SELECT * FROM blog_programm_language WHERE id='$id' ");
     $myrow2 = mysqli_fetch_array($result2);
 
     print <<<FORMA
-    <form action="update.php.php" method="POST" enctype="multipart/form-data">
+    <form action="update.php" method="POST" enctype="multipart/form-data">
     <br>
     <input type="text" name="title" value="$myrow2[title]">
     <br>
@@ -39,15 +39,11 @@ if (!isset($id)){
     <br>
     <input type="text" name="image" value="$myrow2[image]">
     <br>
-    <button type="submit" value="$myrow2[id]">Изменить</button>
+    <button type="submit" name="id" value="$myrow2[id]">Изменить</button>
     <button type="reset">Очистить</button>
 </form>
-    
-    
-    
+      
 </form>
-    
-
 
 FORMA;
 }

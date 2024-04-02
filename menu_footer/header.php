@@ -25,4 +25,5 @@ include("db.php");
     <a href="../admin/delete/delete.php">DeleteBlog</a>
     <a href="../admin/update/edit.php">UpdateBlog</a>
     <a href="../programm_lang.php">More Languages</a>
+    <a href="../register/login.php">Авторизация</a>
 </nav>

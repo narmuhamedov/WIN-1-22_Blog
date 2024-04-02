@@ -30,7 +30,7 @@ if ($user == 0) {
 setcookie('user', $user['name'], time() + 3600 * 24, '/');
 
 
-header('Location: success.php');
+header('Location: ../admin/index_admin.php');
 exit();
 
 ?>

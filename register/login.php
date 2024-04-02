@@ -20,6 +20,7 @@
 
     </form>
     <a href="register.php">Регистрация</a>
+    <a href="../index.php">На главную</a>
 </div>
 
 
